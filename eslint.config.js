@@ -24,5 +24,6 @@ export default tseslint.config({
     ],
     'indent': ['warn', 2],
     'quotes': ['warn', 'single'],
+    'tabs-or-spaces': ['warn', 'tabs'],
   },
 })
