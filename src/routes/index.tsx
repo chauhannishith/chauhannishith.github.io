@@ -6,12 +6,13 @@ import {Profile} from '../containers/Profile'
 import { customTheme } from '../utils'
 
 const CenterLayout = () => {
+  const theme = customTheme
   return (
     <ThemeProvider theme={customTheme}>
       <Container maxWidth={false} 
       style={{
         position: 'relative',
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.background.default,
         color: 'black',
         minHeight: '100vh',
         padding: '0',
