@@ -1,10 +1,10 @@
-import {  Container } from '@mui/material'
+import { PageWrapper } from '../components/PageWrapper'
 
 export const Profile = () => {
     return (
-        <Container>
-        <h1>Profile</h1>
-        <p>Under construction...</p>
-        </Container>
+        <PageWrapper>
+        <h1>Hi, I am Nishith</h1>
+        <p>Full Stack Developer based in Surat, India</p>
+        </PageWrapper>
     )
 }

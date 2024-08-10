@@ -8,5 +8,17 @@ export const customTheme = createTheme({
           // The props to change the default for.
         },
       },
+      MuiLink: {
+        variants: [
+            {
+                props: { variant: 'subtitle1' },
+                style: {
+                fontSize: '1rem',
+                color: 'black',
+                textDecoration: 'none',
+                },
+            },
+        ]
+      },
     }
 })
