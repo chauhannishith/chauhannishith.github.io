@@ -24,16 +24,6 @@
   pointer-events: none;
 }
 
-.context {
-  /* This is the class which limits the size of the card*/
-  height: 100%;
-  padding: 0 !important;
-  margin: auto;
-  position: relative;
-  background-color: white;
-  color: black;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

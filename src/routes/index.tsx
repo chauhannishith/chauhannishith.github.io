@@ -8,7 +8,14 @@ import { customTheme } from '../utils'
 const CenterLayout = () => {
   return (
     <ThemeProvider theme={customTheme}>
-      <Container maxWidth={false} className="context">
+      <Container maxWidth={false} 
+      style={{
+        position: 'relative',
+        backgroundColor: 'white',
+        color: 'black',
+        minHeight: '100vh',
+        padding: '0',
+      }}>
         <React.Suspense fallback={<></>}>
           <Outlet />
         </React.Suspense>
