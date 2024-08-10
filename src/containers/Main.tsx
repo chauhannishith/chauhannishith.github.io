@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../assets/gear-96.png'
 import '../App.css';
 

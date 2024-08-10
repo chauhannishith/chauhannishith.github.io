@@ -1,4 +1,4 @@
-import { Card, Container, ThemeProvider } from '@mui/material'
+import { Container, ThemeProvider } from '@mui/material'
 import React from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import { MainPage } from '../containers/Main'
@@ -9,11 +9,9 @@ const CenterLayout = () => {
   return (
     <ThemeProvider theme={customTheme}>
     <Container maxWidth={false} className="context">
-      <Card>
           <React.Suspense fallback={<></>}>
             <Outlet />
           </React.Suspense>
-      </Card>
     </Container>
     </ThemeProvider>
   )
