@@ -8,11 +8,11 @@ import { customTheme } from '../utils'
 const CenterLayout = () => {
   return (
     <ThemeProvider theme={customTheme}>
-    <Container maxWidth={false} className="context">
-          <React.Suspense fallback={<></>}>
-            <Outlet />
-          </React.Suspense>
-    </Container>
+      <Container maxWidth={false} className="context">
+        <React.Suspense fallback={<></>}>
+          <Outlet />
+        </React.Suspense>
+      </Container>
     </ThemeProvider>
   )
 }
@@ -21,7 +21,7 @@ export const RoutesContainer = () => {
   const routes = () => {
     return (
       <Route element={<CenterLayout />}>
-        <Route path={"/profile"} element={<Profile />} />
+        <Route path={'/profile'} element={<Profile />} />
 
         <Route path="*" element={<MainPage />} />
       </Route>
