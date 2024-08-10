@@ -6,9 +6,9 @@ import { Skills } from '../components/Skills'
 export const Profile = () => {
   return (
     <PageWrapper>
-        <About />
-        <Skills />
-        <Experience />
+      <About />
+      <Skills />
+      <Experience />
     </PageWrapper>
   )
 }

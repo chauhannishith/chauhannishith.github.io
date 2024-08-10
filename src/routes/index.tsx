@@ -10,13 +10,13 @@ const CenterLayout = () => {
   return (
     <ThemeProvider theme={customTheme}>
       <Container maxWidth={false} 
-      style={{
-        position: 'relative',
-        backgroundColor: theme.palette.background.default,
-        color: 'black',
-        minHeight: '100vh',
-        padding: '0',
-      }}>
+        style={{
+          position: 'relative',
+          backgroundColor: theme.palette.background.default,
+          color: 'black',
+          minHeight: '100vh',
+          padding: '0',
+        }}>
         <React.Suspense fallback={<></>}>
           <Outlet />
         </React.Suspense>
