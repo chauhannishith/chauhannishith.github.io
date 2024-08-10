@@ -1,8 +1,10 @@
+import {  Container } from '@mui/material'
+
 export const Profile = () => {
     return (
-        <div>
+        <Container>
         <h1>Profile</h1>
         <p>Under construction...</p>
-        </div>
+        </Container>
     )
 }

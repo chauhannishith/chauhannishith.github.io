@@ -1,8 +1,8 @@
 import React from 'react'
 import logo from '../assets/gear-96.png'
-import './App.css';
+import '../App.css';
 
-export const Main = () => {
+export const MainPage = () => {
   return (
     <div className="App">
       <header className="App-header">

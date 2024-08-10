@@ -1,18 +1,21 @@
-import { Card, Container } from '@mui/material'
+import { Card, Container, ThemeProvider } from '@mui/material'
 import React from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
-import { App } from '../App'
+import { MainPage } from '../containers/Main'
 import {Profile} from '../containers/Profile'
+import { customTheme } from '../utils'
 
 const CenterLayout = () => {
   return (
-    <Container maxWidth="sm" className="context">
-      <Card raised={true} className="card-height content-container">
+    <ThemeProvider theme={customTheme}>
+    <Container maxWidth={false} className="context">
+      <Card>
           <React.Suspense fallback={<></>}>
             <Outlet />
           </React.Suspense>
       </Card>
     </Container>
+    </ThemeProvider>
   )
 }
 
@@ -22,7 +25,7 @@ export const RoutesContainer = () => {
       <Route element={<CenterLayout />}>
         <Route path={"/profile"} element={<Profile />} />
 
-        <Route path="*" element={<App />} />
+        <Route path="*" element={<MainPage />} />
       </Route>
     )
   }
