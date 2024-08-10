@@ -12,7 +12,7 @@ export const Section = ({children, id, title}: {children: React.ReactNode, id: s
         }}
       >
         <Card style={{
-          height: 'calc(100vh - 8rem)',
+          height: 'calc(100vh - 4rem)',
           width: '100%',
           padding: '2rem',
           backgroundColor: palette.background.surface2,

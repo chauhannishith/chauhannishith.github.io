@@ -9,15 +9,15 @@ export const PageWrapper = ({children}: {children: React.ReactNode}) => {
       <Navbar />
       <Container 
         style={{
-          padding: '0rem 2rem 2rem',
           margin: '0rem',
           minWidth: '100%',
           minHeight: '100%',
           boxSizing: 'border-box',
+          padding: 0,
         }}
         data-testid='page_wrapper'
       >
-        <Grid container flexDirection={'column'} item gap={8} marginTop={'1rem'}>
+        <Grid container flexDirection={'column'} item >
           {children}
         </Grid>
       </Container>
