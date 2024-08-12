@@ -6,50 +6,50 @@ export const Skills = () => {
     <Section id="skills">
       <Grid container item xs={12} rowGap={2}>
         <Grid item xs={12}>
-        <Typography variant='h3'>
+          <Typography variant='h3' color='text.secondary'>
           Skills
-        </Typography>
-      </Grid>
+          </Typography>
+        </Grid>
 
         <Grid item xs={12}>
-        <Typography variant='h5'>
+          <Typography variant='h5' color='text.secondary'>
         Technologies I've worked with
-      </Typography>
-      </Grid>
-      <Grid container item xs flexDirection={'column'}>
-      <Typography variant='h6'>
+          </Typography>
+        </Grid>
+        <Grid container item xs flexDirection={'column'}>
+          <Typography variant='h6' color='text.secondary'>
         Languages
-      </Typography>
-      <ul>
-        <li><Typography variant='body1'>React</Typography></li>
-        <li><Typography variant='body1'>Node</Typography></li>
-        <li><Typography variant='body1'>Express</Typography></li>
-        <li><Typography variant='body1'>PostgreSQL</Typography></li>
-        <li><Typography variant='body1'>Typescript</Typography></li>
-      </ul>
-      </Grid>
-      <Grid container item xs flexDirection={'column'}>
-      <Typography variant='h6'>
+          </Typography>
+          <ul>
+            <li><Typography variant='body1' color='text.secondary'>React</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Node</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Express</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>PostgreSQL</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Typescript</Typography></li>
+          </ul>
+        </Grid>
+        <Grid container item xs flexDirection={'column'}>
+          <Typography variant='h6' color='text.secondary'>
         Frameworks
-      </Typography>
-      <ul>
-        <li><Typography variant='body1'>React</Typography></li>
-        <li><Typography variant='body1'>Node</Typography></li>
-        <li><Typography variant='body1'>Express</Typography></li>
-        <li><Typography variant='body1'>PostgreSQL</Typography></li>
-        <li><Typography variant='body1'>Typescript</Typography></li>
-      </ul>
-      </Grid>
-      <Grid container item xs flexDirection={'column'}>
-      <Typography variant='h6'>
+          </Typography>
+          <ul>
+            <li><Typography variant='body1' color='text.secondary'>React</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Node</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Express</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>PostgreSQL</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>Typescript</Typography></li>
+          </ul>
+        </Grid>
+        <Grid container item xs flexDirection={'column'}>
+          <Typography variant='h6' color='text.secondary'>
         Databases
-      </Typography>
-      <ul>
-        <li><Typography variant='body1'>PostgreSQL</Typography></li>
-        <li><Typography variant='body1'>DynamoDB</Typography></li>
-        <li><Typography variant='body1'>MongoDB</Typography></li>
-      </ul>
-      </Grid>
+          </Typography>
+          <ul>
+            <li><Typography variant='body1' color='text.secondary'>PostgreSQL</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>DynamoDB</Typography></li>
+            <li><Typography variant='body1' color='text.secondary'>MongoDB</Typography></li>
+          </ul>
+        </Grid>
       </Grid>
 
     </Section>
