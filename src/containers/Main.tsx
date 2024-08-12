@@ -1,7 +1,7 @@
-import logo from './assets/gear-96.png';
-import './App.css';
+import logo from '../assets/gear-96.png'
+import '../App.css';
 
-function App() {
+export const MainPage = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -14,4 +14,3 @@ function App() {
   );
 }
 
-export default App;
