@@ -130,12 +130,7 @@ export const customTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#25315b',
-          border: 'none',
-          borderRadius: '0.5rem',
           color: 'white',
-        },
-        expanded: {
-          borderBottom: '0px',
         },
       },
     },
@@ -151,6 +146,6 @@ export const customTheme = createTheme({
           margin: '0.5rem',
         },
       },
-    }
+    },
   }
 })

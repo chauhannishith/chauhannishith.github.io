@@ -27,6 +27,16 @@
   pointer-events: none;
 }
 
+.scrolled {
+  background-color: #FAFAFF !important;
+  color: #8892B0 !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  a {
+    color: #30343f !important;
+  }
+}
+
 html { 
   scroll-padding-top: 60px; 
 }
