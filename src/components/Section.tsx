@@ -2,7 +2,7 @@ import { Card, Grid } from '@mui/material'
 import React from 'react'
 import { customTheme } from '../utils'
 
-export const Section = ({children, id, title}: {children: React.ReactNode, id: string, title?: string}) => {
+export const Section = ({children, id, title, dark}: {children: React.ReactNode, dark?: boolean, id: string, title?: string}) => {
   const {palette} = customTheme
   return (
     <Grid container item xs={12}>
@@ -12,10 +12,15 @@ export const Section = ({children, id, title}: {children: React.ReactNode, id: s
         }}
       >
         <Card style={{
-          height: 'calc(100vh - 4rem)',
+          minHeight: 'calc(100vh - 60px)',
           width: '100%',
-          padding: '2rem',
-          backgroundColor: palette.background.surface2,
+          backgroundColor: dark ? palette.background.surface2 : palette.background.default,
+        }}
+        sx={{
+          padding: {
+            xs:'2rem 2rem',
+            md: '6rem 10rem',            
+          },
         }}>
           {title && <h2 style={{
             marginTop: '0'
