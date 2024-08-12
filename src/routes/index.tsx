@@ -1,6 +1,6 @@
 import { Container, ThemeProvider } from '@mui/material'
 import React from 'react'
-import {  HashRouter, Outlet, Route, Routes } from 'react-router-dom'
+import {  BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import { MainPage } from '../containers/Main'
 import {Profile} from '../containers/Profile'
 import { customTheme } from '../utils'
@@ -36,8 +36,8 @@ export const RoutesContainer = () => {
     )
   }
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>{routes()}</Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
