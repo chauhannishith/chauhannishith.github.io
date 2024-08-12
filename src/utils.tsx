@@ -87,7 +87,7 @@ export const customTheme = createTheme({
       primary: '#8892B0',
       secondary: '#30343f',
       disabled: '#D2D4DC',
-      muted: '#D2D4DC',
+      muted: '#FED766',
     },
     background: {
       default: '#FCFCFC',
