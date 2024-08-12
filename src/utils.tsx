@@ -78,22 +78,22 @@ export const customTheme = createTheme({
       contrastText: '#0F121D',
     },
     secondary: {
-      main: '#FF0000',
+      main: '#FFFFFF',
       light: '#FF0000',
       dark: '#FF0000',
       contrastText: '#FF0000',
     },
     text: {
-      primary: '#5D576B',
-      secondary: '#6B00F0',
+      primary: '#8892B0',
+      secondary: '#30343f',
       disabled: '#D2D4DC',
       muted: '#D2D4DC',
     },
     background: {
       default: '#FCFCFC',
       paper: '#FFFFFF',
-      surface: '#99E1D9',
-      surface2: '#FFFAE3',
+      surface: '#FAFAFF',
+      surface2: '#1E2749',
       surface3: '#E5E7EB',
       header: '#F9FAFB',
       disabled: '#D2D4DC',
@@ -106,18 +106,51 @@ export const customTheme = createTheme({
         // The props to change the default for.
       },
     },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: '0rem',
+        },
+      },
+    },
     MuiLink: {
       variants: [
         {
           props: { variant: 'subtitle1' },
           style: {
             fontSize: '1rem',
-            color: 'black',
             textDecoration: 'none',
-            fontWeight: 600,
+            fontWeight: 500,
+            color: '#FFFFFF',
           },
         },
       ]
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#25315b',
+          border: 'none',
+          borderRadius: '0.5rem',
+          color: 'white',
+        },
+        expanded: {
+          borderBottom: '0px',
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#25315b',
+          border: '1px solid #8892b0',
+          borderRadius: '0.5rem',
+          color: 'white',
+        },
+        content: {
+          margin: '0.5rem',
+        },
+      },
+    }
   }
 })
