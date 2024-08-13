@@ -42,7 +42,10 @@ const Stably = () => {
           </Grid>
           <Grid item xs={12}>
             <Typography>
-            At Stably I worked as a full stack developer to create responsive web applications and on the backend created APIs which interacted with third-party-apis and integrated them with the frontend. I also worked on improving the code quality and user experience of the applications.
+            At Stably I started working as a full stack developer to create responsive web applications and on the backend created APIs which interacted with third-party-apis and integrated them with the frontend.
+            </Typography>
+            <Typography marginTop={'1rem'}>
+            I was promoted to <span style={{ fontWeight: 600 }}>Software Developer II</span> in 2020 and I started taking ownership of features that impact the users directly. I also worked on improving the code quality and user experience of the applications.
             </Typography>
           </Grid>
           <Grid item xs={12}>
@@ -158,6 +161,5 @@ const Company = styled('span')(({ theme }) => ({
 const UList = styled('ul')({
   display: 'grid',
   gridGap: '1rem',
-  gridTemplateColumns: 'repeat(auto-fill, 8rem)',
-
+  gridTemplateColumns: 'repeat(auto-fill, 7rem)',
 })

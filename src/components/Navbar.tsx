@@ -3,10 +3,11 @@ import { customTheme } from '../utils'
 import { useEffect } from 'react'
 
 export const Navbar = () => {
-  const {palette} = customTheme
+  const { palette } = customTheme
 
   useEffect(() => {
     const nav = document.getElementById('navbar')
+
     window.onscroll = () => {
       if (nav) {
         if (window.scrollY > 100) {
@@ -43,7 +44,6 @@ export const Navbar = () => {
         flexDirection={'row'}
         sx={{
           visibility: {
-            sm: 'hidden',
             md: 'visible',
           },
         }}
