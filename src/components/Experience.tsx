@@ -1,6 +1,14 @@
 import { Accordion, AccordionSummary, Typography, AccordionDetails, Grid, styled } from '@mui/material'
 import { Section } from './Section'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { experiences, type ExperienceEntry } from '../data/experience'
+
+const accordionSx = {
+  width: {
+    sm: '100%',
+    md: '80%',
+  },
+}
 
 export const Experience = () => {
   return (
@@ -8,157 +16,68 @@ export const Experience = () => {
       <Grid container item xs={12} rowGap={2}>
         <Grid item xs={12}>
           <Typography variant='h3' color='secondary'>
-          Experience
+            Experience
           </Typography>
         </Grid>
-        <Stably/>
-        <Numie/>
-        <Groceristar/>
+        {experiences.map((entry, index) => (
+          <ExperienceAccordion key={entry.id} entry={entry} index={index} />
+        ))}
       </Grid>
     </Section>
   )
 }
 
-const Stably = () => {
-  return (
-    <Accordion defaultExpanded sx={{
-      width: {
-        sm: '100%',
-        md: '80%',
-      }
-    }}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon color={'secondary'} />}
-        aria-controls="panel1-content"
-        id="panel1-header"
-      >
-        <Typography>Software Developer at <Company>Stably Inc.</Company></Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-
-        <Grid container item xs={12} gap={'1rem'}>
-          <Grid item xs={12}>
-            <Typography fontSize={'1.125rem'} fontWeight={500}>April 2019 - Present</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography>
-            At Stably I started working as a full stack developer to create responsive web applications and on the backend created APIs which interacted with third-party-apis and integrated them with the frontend.
-            </Typography>
-            <Typography marginTop={'1rem'}>
-            I was promoted to <span style={{ fontWeight: 600 }}>Software Developer II</span> in 2020 and I started taking ownership of features that impact the users directly. I also worked on improving the code quality and user experience of the applications.
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <UList>
-              {
-                ['Golang', 'ProtoBuf', 'ReactJS', 'Typescript', 'NodeJS', 'Playwright', 'Redux-Saga', 'Redux-Thunk ', ' PostgreSQL' ].map((item, index) => (
-                  <li key={`stably-${index}`}>
-                    {item}
-                  </li>
-                ))
-              }
-            </UList>
-          </Grid>
+const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: number }) => (
+  <Accordion
+    defaultExpanded={index === 0}
+    sx={accordionSx}
+  >
+    <AccordionSummary
+      expandIcon={<ExpandMoreIcon color={'secondary'} />}
+      aria-controls={`panel-${entry.id}-content`}
+      id={`panel-${entry.id}-header`}
+    >
+      <Typography>
+        {entry.title} at <Company>{entry.company}</Company> — {entry.location}
+      </Typography>
+    </AccordionSummary>
+    <AccordionDetails>
+      <Grid container item xs={12} gap={'1rem'}>
+        <Grid item xs={12}>
+          <Typography fontSize={'1.125rem'} fontWeight={500}>{entry.period}</Typography>
         </Grid>
-      </AccordionDetails>
-    </Accordion>
-  )
-}
-
-const Numie = () => {
-  return (
-    <Accordion sx={{
-      width: {
-        sm: '100%',
-        md: '80%',
-      }
-    }}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon color={'secondary'} />}
-        aria-controls="panel2-content"
-        id="panel2-header"
-      >
-        <Typography>Full Stack Developer at <Company>Numie LLC</Company></Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Grid container item xs={12} gap={'1rem'}>
-          <Grid item xs={12}>
-            <Typography fontSize={'1.125rem'} fontWeight={500}>August 2018 - March 2019</Typography>
-          </Grid>
-          <Grid container item xs={12}>
-            <Grid item xs={12}>
-              <Typography>
-                A creative, full-service studio. I worked as a full stack developer converting wireframes into responsive web applications. I also worked on the backend to create APIs and integrate them with the frontend.
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <UList>
-                {
-                  ['ReactJS', 'NextJS', 'SASS/SCSS', 'NodeJs', 'MongoDB', 'Heroku', 'Netlify' ].map((item, index) => (
-                    <li key={`numie-${index}`}>
-                      {item}
-                    </li>
-                  ))
-                }
-              </UList>
-            </Grid>
-          </Grid>
+        <Grid item xs={12}>
+          <BulletList>
+            {entry.bullets.map((bullet, i) => (
+              <li key={`${entry.id}-bullet-${i}`}>{bullet}</li>
+            ))}
+          </BulletList>
         </Grid>
-      </AccordionDetails>
-    </Accordion>
-  )
-}
-
-const Groceristar = () => {
-  return (
-    <Accordion sx={{
-      width: {
-        sm: '100%',
-        md: '80%',
-      }
-    }}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon color={'secondary'} />}
-        aria-controls="panel3-content"
-        id="panel3-header"
-      >
-        <Typography>Intern at <Company>Groceristar</Company></Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Grid container item xs={12} gap={'1rem'}>
-          <Grid item xs={12}>
-            <Typography fontSize={'1.125rem'} fontWeight={500}>March 2018 - July 2018</Typography>
-          </Grid>
-          <Grid container item xs={12}>
-            <Grid item xs={12}>
-              <Typography>
-              A platform for recipe creators and other people, related to food. Users could upload their recipes, create shopping lists, and share their recipes with others.
-              I developed and published npm package for modules available to third parties and learned best practices and got hands-on experience from coding to deployment.
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <UList>
-                {
-                  ['Javascript', 'ReactJS'].map((item, index) => (
-                    <li key={`groceristar-${index}`}>
-                      {item}
-                    </li>
-                  ))
-                }
-              </UList>
-            </Grid>
-          </Grid>
+        <Grid item xs={12}>
+          <SkillList>
+            {entry.skills.map((skill, i) => (
+              <li key={`${entry.id}-skill-${i}`}>{skill}</li>
+            ))}
+          </SkillList>
         </Grid>
-      </AccordionDetails>
-    </Accordion>
-  )
-}
+      </Grid>
+    </AccordionDetails>
+  </Accordion>
+)
 
 const Company = styled('span')(({ theme }) => ({
   color: theme.palette.text.muted,
 }))
 
-const UList = styled('ul')({
+const BulletList = styled('ul')({
+  listStyle: 'disc',
+  paddingLeft: '1.5rem',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.75rem',
+})
+
+const SkillList = styled('ul')({
   display: 'grid',
   gridGap: '1rem',
   gridTemplateColumns: 'repeat(auto-fill, 7rem)',

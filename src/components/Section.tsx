@@ -1,4 +1,4 @@
-import { Card, Grid } from '@mui/material'
+import { Card, Grid, Typography } from '@mui/material'
 import React from 'react'
 import { customTheme } from '../utils'
 
@@ -22,9 +22,13 @@ export const Section = ({children, id, title, dark}: {children: React.ReactNode,
             md: '6rem 10rem',            
           },
         }}>
-          {title && <h2 style={{
-            marginTop: '0'
-          }}>{title}</h2>}
+          {title && (
+            <Typography variant='h2' fontWeight={600} style={{
+              marginTop: '0'
+            }}>
+              {title}
+            </Typography>
+          )}
           {children}
         </Card>
       </section>
