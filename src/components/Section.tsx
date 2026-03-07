@@ -23,7 +23,7 @@ export const Section = ({children, id, title, dark}: {children: React.ReactNode,
           },
         }}>
           {title && (
-            <Typography variant='h2' fontWeight={600}  style={{
+            <Typography variant='h2' fontWeight={600} style={{
               marginTop: '0'
             }}>
               {title}
