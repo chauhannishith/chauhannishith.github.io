@@ -38,6 +38,7 @@ export const Section = ({children, id, title, dark}: {children: React.ReactNode,
       <section id={id}
         ref={sectionRef}
         className={`fade-section ${isVisible ? 'is-visible' : ''}`}
+        data-surface={dark ? 'dark' : 'light'}
         style={{
           width: '100%',
         }}

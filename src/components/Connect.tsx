@@ -1,6 +1,13 @@
 import { Typography, Grid } from '@mui/material'
 import { Section } from './Section'
 import { Email, GitHub, LinkedIn } from '@mui/icons-material'
+import { socialLinks } from '../data/socials'
+
+const iconById = {
+  email: Email,
+  github: GitHub,
+  linkedin: LinkedIn,
+}
 
 export const Connect = () => {
   return (
@@ -15,21 +22,22 @@ export const Connect = () => {
               If you want to know more about me or my work, or if you would just like to say hello, send me a message. I'd love to hear from you.
             </Typography>
             <Grid container item xs flexDirection={'row'} className='fade-list-item' style={{ animationDelay: '210ms' }}>
-              <Grid item marginRight={'1rem'} className='interactive-icon'>
-                <a href="mailto:chauhannishith94@gmail.com">
-                  <Email color={'primary'}/>
-                </a>
-              </Grid>
-              <Grid item marginRight={'1rem'} className='interactive-icon'>
-                <a href="https://github.com/chauhannishith" target='_blank' rel='noreferrer'>
-                  <GitHub color={'primary'}/>
-                </a>
-              </Grid>
-              <Grid item marginRight={'1rem'} className='interactive-icon'>
-                <a href="https://www.linkedin.com/in/nishith-chauhan-091322b9/" target='_blank' rel='noreferrer'>
-                  <LinkedIn color={'primary'}/>
-                </a>
-              </Grid>
+              {socialLinks.map((social) => {
+                const Icon = iconById[social.id]
+                return (
+                  <Grid item marginRight={'1rem'} className='interactive-icon' key={social.id}>
+                    <a
+                      href={social.href}
+                      target={social.id === 'email' ? undefined : '_blank'}
+                      rel={social.id === 'email' ? undefined : 'noreferrer'}
+                      aria-label={social.label}
+                      title={social.label}
+                    >
+                      <Icon color={'primary'}/>
+                    </a>
+                  </Grid>
+                )
+              })}
             </Grid>
           </Grid>
         </Grid>
