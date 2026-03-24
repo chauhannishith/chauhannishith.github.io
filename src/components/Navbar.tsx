@@ -7,8 +7,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const nav = document.getElementById('navbar')
-
-    window.onscroll = () => {
+    const onScroll = () => {
       if (nav) {
         if (window.scrollY > 100) {
           nav.classList.add('scrolled')
@@ -17,16 +16,20 @@ export const Navbar = () => {
         }
       }
     }
+
+    window.addEventListener('scroll', onScroll)
+    onScroll()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
   return (
     <Grid container 
       flexDirection={'row'} 
       sx={{
-        justifyContent: {
-          md: 'space-between',
-          lg: 'flex-end',
-        },
+        justifyContent: 'flex-end',
       }}
       style={{
         position: 'sticky',
@@ -40,24 +43,25 @@ export const Navbar = () => {
       {/* <Grid item xs={4}>
         <Typography variant={'h4'}>Nishith Chauhan</Typography>
       </Grid> */}
-      <Grid container item xs={12} md={4} justifyContent={'space-around'} alignItems={'center'}
+      <Grid container item xs={12} md={4} justifyContent={'flex-end'} alignItems={'center'}
         flexDirection={'row'}
+        columnGap={'2rem'}
         sx={{
           visibility: {
             md: 'visible',
           },
         }}
       >
-        <Link href="#about" variant='subtitle1'>
+        <Link href="#about" variant='subtitle1' className='nav-link'>
           About
         </Link>
-        <Link href="#skills" variant='subtitle1'>
+        <Link href="#skills" variant='subtitle1' className='nav-link'>
           Skills
         </Link>
-        <Link href="#experience" variant='subtitle1'>
+        <Link href="#experience" variant='subtitle1' className='nav-link'>
           Experience
         </Link>
-        <Link href="#connect" variant='subtitle1'>
+        <Link href="#connect" variant='subtitle1' className='nav-link'>
           Contact
         </Link>
       </Grid>

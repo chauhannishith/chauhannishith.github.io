@@ -14,7 +14,7 @@ export const Experience = () => {
   return (
     <Section id="experience" dark>
       <Grid container item xs={12} rowGap={2}>
-        <Grid item xs={12}>
+        <Grid item xs={12} className='fade-list-item' style={{ animationDelay: '40ms' }}>
           <Typography variant='h3' color='secondary'>
             Experience
           </Typography>
@@ -31,6 +31,8 @@ const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: 
   <Accordion
     defaultExpanded={index === 0}
     sx={accordionSx}
+    className='interactive-card fade-list-item'
+    style={{ animationDelay: `${120 + (index * 100)}ms` }}
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon color={'secondary'} />}
