@@ -21,8 +21,8 @@ export const Section = ({children, id, title, dark}: {children: React.ReactNode,
         }
       },
       {
-        rootMargin: '-10% 0px',
-        threshold: 0.2,
+        rootMargin: '-6% 0px -8% 0px',
+        threshold: 0.15,
       },
     )
 
