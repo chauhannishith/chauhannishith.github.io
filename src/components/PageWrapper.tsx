@@ -1,12 +1,14 @@
 import React from 'react'
 import { Grid, Container } from '@mui/material'
 import { Navbar } from './Navbar'
+import { SocialRail } from './SocialRail'
 
 export const PageWrapper = ({children}: {children: React.ReactNode}) => {
 
   return (
     <>
       <Navbar />
+      <SocialRail />
       <Container 
         style={{
           margin: '0rem',
