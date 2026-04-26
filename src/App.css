@@ -26,7 +26,7 @@
   pointer-events: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.5rem;
   width: 100%;
   max-width: 95vw;
@@ -41,6 +41,12 @@
     background-color 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
+}
+
+@media (min-width: 960px) {
+  #navbar .nav-pill {
+    justify-content: space-between;
+  }
 }
 
 #navbar.scrolled .nav-pill {

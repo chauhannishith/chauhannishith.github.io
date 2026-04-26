@@ -3,9 +3,8 @@ import { useEffect } from 'react'
 import { site } from '../data/site'
 
 const links = [
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
   { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
   { href: '#connect', label: 'Contact' },
 ] as const
@@ -32,7 +31,16 @@ export const Navbar = () => {
   return (
     <Box id="navbar" component="header">
       <Box className="nav-pill" component="nav" aria-label="Primary">
-        <Link href="#top" color="inherit" sx={{ textDecoration: 'none', pl: 0.5, flexShrink: 0 }}>
+        <Link
+          href="#top"
+          color="inherit"
+          sx={{
+            textDecoration: 'none',
+            pl: { md: 0.5 },
+            flexShrink: 0,
+            display: { xs: 'none', md: 'block' },
+          }}
+        >
           <Typography component="span" variant="h6" sx={{ fontWeight: 800, color: 'text.primary', fontSize: '1rem' }}>
             {first}
             <Typography
@@ -48,9 +56,9 @@ export const Navbar = () => {
           direction="row"
           gap={0.25}
           flexWrap="wrap"
-          justifyContent="flex-end"
+          justifyContent={{ xs: 'center', md: 'flex-end' }}
           alignItems="center"
-          sx={{ rowGap: 0.5 }}
+          sx={{ rowGap: 0.5, minWidth: 0 }}
         >
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="nav-link" underline="none">

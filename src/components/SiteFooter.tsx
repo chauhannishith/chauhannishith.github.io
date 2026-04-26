@@ -1,4 +1,4 @@
-import { Box, Link, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import { site } from '../data/site'
 
 export const SiteFooter = () => {
@@ -22,11 +22,6 @@ export const SiteFooter = () => {
       >
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           © {y} {site.name}. All rights reserved.
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          <Link href="#connect" color="primary" sx={{ textDecoration: 'none', fontWeight: 600 }}>
-            Get in touch
-          </Link>
         </Typography>
       </Stack>
     </Box>
