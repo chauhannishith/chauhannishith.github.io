@@ -1,70 +1,64 @@
-import { Grid, Link } from '@mui/material'
-import { customTheme } from '../utils'
+import { Box, Link, Stack, Typography } from '@mui/material'
 import { useEffect } from 'react'
+import { site } from '../data/site'
+
+const links = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#connect', label: 'Contact' },
+] as const
+
+const first = site.name.split(' ')[0] ?? site.name
 
 export const Navbar = () => {
-  const { palette } = customTheme
-
   useEffect(() => {
     const nav = document.getElementById('navbar')
     const onScroll = () => {
       if (nav) {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 12) {
           nav.classList.add('scrolled')
         } else {
           nav.classList.remove('scrolled')
         }
       }
     }
-
     window.addEventListener('scroll', onScroll)
     onScroll()
-
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <Grid container 
-      flexDirection={'row'} 
-      sx={{
-        justifyContent: 'flex-end',
-      }}
-      style={{
-        position: 'sticky',
-        top: 0,
-        backgroundColor: palette.background.surface2,
-        padding: '1rem 2rem',
-        zIndex: 10,
-      }}
-      id='navbar'
-    >
-      {/* <Grid item xs={4}>
-        <Typography variant={'h4'}>Nishith Chauhan</Typography>
-      </Grid> */}
-      <Grid container item xs={12} md={4} justifyContent={'flex-end'} alignItems={'center'}
-        flexDirection={'row'}
-        columnGap={'2rem'}
-        sx={{
-          visibility: {
-            md: 'visible',
-          },
-        }}
-      >
-        <Link href="#about" variant='subtitle1' className='nav-link'>
-          About
+    <Box id="navbar" component="header">
+      <Box className="nav-pill" component="nav" aria-label="Primary">
+        <Link href="#top" color="inherit" sx={{ textDecoration: 'none', pl: 0.5, flexShrink: 0 }}>
+          <Typography component="span" variant="h6" sx={{ fontWeight: 800, color: 'text.primary', fontSize: '1rem' }}>
+            {first}
+            <Typography
+              component="span"
+              variant="h6"
+              sx={{ fontWeight: 500, color: 'text.secondary', ml: 0.25, fontSize: '1rem' }}
+            >
+              .dev
+            </Typography>
+          </Typography>
         </Link>
-        <Link href="#skills" variant='subtitle1' className='nav-link'>
-          Skills
-        </Link>
-        <Link href="#experience" variant='subtitle1' className='nav-link'>
-          Experience
-        </Link>
-        <Link href="#connect" variant='subtitle1' className='nav-link'>
-          Contact
-        </Link>
-      </Grid>
-    </Grid>
+        <Stack
+          direction="row"
+          gap={0.25}
+          flexWrap="wrap"
+          justifyContent="flex-end"
+          alignItems="center"
+          sx={{ rowGap: 0.5 }}
+        >
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="nav-link" underline="none">
+              {l.label}
+            </Link>
+          ))}
+        </Stack>
+      </Box>
+    </Box>
   )
 }

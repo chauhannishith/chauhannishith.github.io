@@ -1,68 +1,47 @@
+/*
+  Page background matches https://www.abdallaahmed.icu/en default theme:
+  - Not an image: flat --background (see their :root in shipped CSS) = #0a0a0a
+  - “Glow” in the hero is separate: absolutely positioned, blurred, tinted circles
+    (primary / accent / secondary) with mix-blend-mode + pulse — see App.css .ref-hero-glow_*
+*/
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --ref-bg: #0a0a0a;
+  --ref-fg: #ededed;
+  --ref-primary: #6366f1;
+  --ref-zinc-900: #18181b;
+  --ref-primary-soft: color-mix(in srgb, var(--ref-primary) 12%, transparent);
+  --ref-card: #18181b;
+  --ref-border: rgba(255, 255, 255, 0.06);
+  --ref-zinc-400: #a1a1aa;
+  --ref-zinc-500: #71717a;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  background-color: var(--ref-bg);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--ref-bg);
+  color: var(--ref-fg);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  min-height: 100vh;
+  background-color: var(--ref-bg);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
