@@ -22,7 +22,7 @@ export const site = {
   /** Small kicker above title */
   kicker: 'Hi, I\'m',
   /** Optional badge (placeholder until you set availability) */
-  availabilityBadge: 'Availability — TBD (update in src/data/site.ts)',
+  availabilityBadge: 'Availability — Open for new opportunities',
 
   /** Set a URL to show your photo in the hero (right column). Null shows initials. */
   heroAvatarUrl: null as string | null,
