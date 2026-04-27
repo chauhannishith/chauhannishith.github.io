@@ -3,6 +3,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import CodeIcon from '@mui/icons-material/Code'
 import MemoryIcon from '@mui/icons-material/Memory'
 import { site } from '../data/site'
+import { projects } from '../data/projects'
 import { ref } from '../theme/tokens'
 
 const initials = site.name
@@ -136,16 +137,18 @@ export const Hero = () => {
               {site.role} · {site.location}
             </Typography>
             <Stack direction="row" flexWrap="wrap" gap={2}>
-              <Button
-                href="#projects"
-                variant="contained"
-                color="primary"
-                size="large"
-                endIcon={<ChevronRightIcon />}
-                sx={{ borderRadius: 2 }}
-              >
-                View projects
-              </Button>
+              {projects.length > 0 && (
+                <Button
+                  href="#projects"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  endIcon={<ChevronRightIcon />}
+                  sx={{ borderRadius: 2 }}
+                >
+                  View projects
+                </Button>
+              )}
               <Button
                 href="#connect"
                 size="large"

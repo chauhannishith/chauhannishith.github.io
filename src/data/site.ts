@@ -28,9 +28,9 @@ export const site = {
 
   /** Stats — use real numbers or leave placeholders */
   stats: [
-    { id: 'projects', label: 'Projects', value: 'TBD', hint: 'Set a count or remove this cell' },
-    { id: 'certs', label: 'Certificates', value: 'TBD', hint: 'Add certifications section later' },
-    { id: 'years', label: 'Years experience', value: '8+', hint: 'Approx. from your roles (adjust)' },
+    // { id: 'projects', label: 'Projects', value: 'TBD', hint: 'Set a count or remove this cell' },
+    { id: 'certs', label: 'Certificates', value: '1', hint: 'Add certifications section later' },
+    { id: 'years', label: 'Years experience', value: '—', hint: 'Auto-calculated from experience history' },
   ] as const,
 
   /** Testimonials: empty until you have quotes */

@@ -9,6 +9,8 @@ import { ref } from '../theme/tokens'
 const githubHref = socialLinks.find((s) => s.id === 'github')?.href
 
 export const Projects = () => {
+  if (projects.length === 0) return null
+
   return (
     <Box
       id="projects"

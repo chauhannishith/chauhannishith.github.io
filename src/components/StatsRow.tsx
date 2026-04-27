@@ -4,6 +4,8 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import { site } from '../data/site'
 import { ref } from '../theme/tokens'
+import { experiences } from '../data/experience'
+import { yearsExperienceFromPeriods } from '../utils/experienceYears'
 
 const icons = [LayersIcon, EmojiEventsIcon, CalendarMonthIcon] as const
 const iconShell = [
@@ -13,6 +15,10 @@ const iconShell = [
 ] as const
 
 export const StatsRow = () => {
+  const justifyContent =
+    site.stats.length <= 1 ? 'center' : site.stats.length === 2 ? 'space-evenly' : 'space-between'
+  const yearsExperience = yearsExperienceFromPeriods(experiences.map((e) => e.period))
+
   return (
     <Box
       id="stats"
@@ -24,7 +30,12 @@ export const StatsRow = () => {
         mb: { xs: 4, md: 6 },
       }}
     >
-      <Grid container spacing={2}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent={{ xs: 'flex-start', md: justifyContent }}
+        sx={{ justifyContent: { xs: 'flex-start', md: justifyContent } }}
+      >
         {site.stats.map((s, i) => {
           const Icon = icons[i] ?? icons[0]
           const shell = iconShell[i] ?? iconShell[0]
@@ -58,7 +69,7 @@ export const StatsRow = () => {
                 </Box>
                 <Box>
                   <Typography variant="h4" sx={{ color: 'text.primary', fontWeight: 800, lineHeight: 1.1, fontSize: '1.75rem' }}>
-                    {s.value}
+                    {s.id === 'years' ? yearsExperience : s.value}
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'text.muted', fontWeight: 500, fontSize: '0.8rem' }}>
                     {s.label}

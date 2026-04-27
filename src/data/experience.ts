@@ -14,7 +14,7 @@ export const experiences: ExperienceEntry[] = [
     title: 'Software Engineer II',
     company: 'Stably Inc.',
     location: 'Seattle, WA (Remote)',
-    period: 'April 2019 - Feb 2026',
+    period: 'April 2019 - February 2026',
     bullets: [
       'Architected and developed the user-facing fintech portal using ReactJS, NextJS, and TypeScript with Redux-Saga and TanStack Query for USD <> crypto conversions, enabling users to buy and redeem precious metal-backed tokens and stablecoins for a platform handling $1M in average quarterly volume.',
       'Engineered the transition of the primary database from DynamoDB to PostgreSQL for ACID compliance of the core financial ledger.',
