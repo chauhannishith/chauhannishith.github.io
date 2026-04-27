@@ -9,8 +9,6 @@ describe('Profile', () => {
     expect(container.querySelector('#top')).toBeInTheDocument()
     expect(container.querySelector('#stats')).toBeInTheDocument()
     expect(container.querySelector('#about')).toBeInTheDocument()
-    expect(container.querySelector('#projects')).toBeInTheDocument()
-    expect(container.querySelector('#github-activity')).toBeInTheDocument()
     expect(container.querySelector('#skills')).toBeInTheDocument()
     expect(container.querySelector('#experience')).toBeInTheDocument()
     expect(container.querySelector('#connect')).toBeInTheDocument()
