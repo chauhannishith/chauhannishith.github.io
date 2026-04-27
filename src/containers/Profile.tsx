@@ -10,6 +10,9 @@ import { Connect } from '../components/Connect'
 import { SiteFooter } from '../components/SiteFooter'
 
 export const Profile = () => {
+  // reference https://www.abdallaahmed.icu/en
+  // https://github.com/emmabostian/developer-portfolios?tab=readme-ov-file
+  
   return (
     <PageWrapper>
       <Hero />

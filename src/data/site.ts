@@ -1,5 +1,15 @@
 /** Site copy — replace TBD/placeholder values when you have them */
 
+export type SiteStat = {
+  id: string
+  label: string
+  value: string
+  /** Internal note only (not rendered in UI) */
+  hint?: string
+  /** Optional visible line under label */
+  subLabel?: string
+}
+
 export const site = {
   name: 'Nishith Chauhan',
   role: 'Full Stack Developer',
@@ -24,14 +34,14 @@ export const site = {
 
   /** Short “about” for the dedicated section (expand when ready) */
   aboutParagraph:
-    'I focus on end-to-end delivery: from React/TypeScript front-ends to APIs, data stores, and production operations. I care about clarity, performance, and maintainability. Add more bio, education, and links here when you are ready.',
+    'I’m a full stack engineer focused on building reliable, user-friendly web products. I’ve shipped fintech and API-heavy systems end-to-end across React/TypeScript frontends and backend services. I care about clear UX, performance, and maintainable code, and I enjoy taking ownership from problem definition to production.',
 
   /** Stats — use real numbers or leave placeholders */
   stats: [
     // { id: 'projects', label: 'Projects', value: 'TBD', hint: 'Set a count or remove this cell' },
     { id: 'certs', label: 'Certificates', value: '1', hint: 'Add certifications section later' },
     { id: 'years', label: 'Years experience', value: '—', hint: 'Auto-calculated from experience history' },
-  ] as const,
+  ] as SiteStat[],
 
   /** Testimonials: empty until you have quotes */
   testimonialsPlaceholder:

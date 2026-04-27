@@ -142,7 +142,7 @@ export const Skills = () => {
         variant="body2"
         sx={{ color: 'text.secondary', mb: { xs: 3, md: 4 }, maxWidth: 560, mx: 'auto', textAlign: 'center', lineHeight: 1.7 }}
       >
-        Tools and technologies I use across the stack. Icons use the same Devicon set as the reference portfolio.
+        Tools and technologies I use across the stack.
       </Typography>
       <Box
         sx={{
