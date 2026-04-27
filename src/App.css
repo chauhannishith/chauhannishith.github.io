@@ -12,14 +12,15 @@
 #navbar {
   position: fixed;
   top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   z-index: 50;
   width: 100%;
-  max-width: min(100vw, 64rem);
   display: flex;
   justify-content: center;
   pointer-events: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 #navbar .nav-pill {
@@ -28,8 +29,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 100%;
-  max-width: 95vw;
+  width: min(100%, 64rem);
   padding: 0.4rem 0.4rem 0.4rem 0.6rem;
   border-radius: 9999px;
   background-color: rgba(24, 24, 27, 0.78);
@@ -64,6 +64,12 @@
   border-radius: 9999px;
   white-space: nowrap;
   transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (max-width: 420px) {
+  .nav-link {
+    padding: 0.45rem 0.6rem;
+  }
 }
 
 @media (min-width: 900px) {

@@ -111,6 +111,7 @@ export const GitHubActivity = () => {
             background: 'rgba(99, 102, 241, 0.1)',
             filter: 'blur(40px)',
             pointerEvents: 'none',
+            display: { xs: 'none', sm: 'block' },
             animation: 'ref-orb-float 7.5s ease-in-out infinite',
             '@keyframes ref-orb-float': {
               '0%, 100%': { transform: 'translate3d(0, 0, 0)', opacity: 0.7 },
