@@ -96,9 +96,11 @@ export const GitHubActivity = () => {
           background: 'rgba(24, 24, 27, 0.6)',
           boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)',
           backdropFilter: 'blur(16px)',
+          overflow: 'visible',
         }}
       >
         <Box
+          aria-hidden
           sx={{
             position: 'absolute',
             top: -32,
@@ -109,9 +111,17 @@ export const GitHubActivity = () => {
             background: 'rgba(99, 102, 241, 0.1)',
             filter: 'blur(40px)',
             pointerEvents: 'none',
+            animation: 'ref-orb-float 7.5s ease-in-out infinite',
+            '@keyframes ref-orb-float': {
+              '0%, 100%': { transform: 'translate3d(0, 0, 0)', opacity: 0.7 },
+              '50%': { transform: 'translate3d(-10px, 10px, 0)', opacity: 1 },
+            },
+            '@media (prefers-reduced-motion: reduce)': {
+              animation: 'none',
+            },
           }}
         />
-        <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={1} sx={{ mb: 2 }}>
+        <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={1} sx={{ mb: 2, position: 'relative', zIndex: 1 }}>
           {years.map((y) => {
             const isActive = y === selectedYear
             return (
@@ -139,7 +149,7 @@ export const GitHubActivity = () => {
             )
           })}
         </Stack>
-        <Box sx={{ width: '100%', overflowX: 'auto', display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ width: '100%', overflowX: 'auto', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
           <GitHubCalendar
             username={username}
             data={calendarData}
