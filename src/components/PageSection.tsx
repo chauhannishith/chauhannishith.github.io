@@ -37,7 +37,11 @@ export const PageSection = ({ id, kicker, title, titleAlign = 'left', children }
           obs.disconnect()
         }
       },
-      { root: null, rootMargin: '0px 0px 18% 0px', threshold: 0 }
+      /**
+       * Trigger a bit later (closer to "content is actually entering view"),
+       * so the fade/slide doesn’t finish while the section is still far below.
+       */
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 }
     )
     obs.observe(el)
     return () => obs.disconnect()

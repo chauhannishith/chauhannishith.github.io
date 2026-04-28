@@ -153,12 +153,48 @@
   transform: translateY(0);
 }
 
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+  transition-delay: 80ms;
+}
+
+.hero-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-avatar-reveal {
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+  transition-delay: 140ms;
+  will-change: transform, opacity;
+}
+
+.hero-avatar-reveal--in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .portfolio-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-reveal,
+  .hero-avatar-reveal {
     opacity: 1;
     transform: none;
     transition: none;

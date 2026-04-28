@@ -3,6 +3,7 @@ import { GitHubCalendar } from 'react-github-calendar'
 import { socialLinks } from '../data/socials'
 import { useEffect, useMemo, useState } from 'react'
 import { ref } from '../theme/tokens'
+import { useInViewOnce } from '../hooks/useInViewOnce'
 
 const githubHref = socialLinks.find((s) => s.id === 'github')?.href
 
@@ -20,6 +21,11 @@ const getGitHubUsername = (href: string | undefined) => {
 
 export const GitHubActivity = () => {
   const username = getGitHubUsername(githubHref)
+  const { ref: sectionRef, isVisible } = useInViewOnce<HTMLElement>({
+    root: null,
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.15,
+  })
 
   const years = useMemo(() => {
     const y = new Date().getFullYear()
@@ -72,6 +78,8 @@ export const GitHubActivity = () => {
     <Box
       id="github-activity"
       component="section"
+      ref={sectionRef}
+      className={`portfolio-fade${isVisible ? ' portfolio-fade--in' : ''}`}
       sx={{ maxWidth: 1120, mx: 'auto', mb: { xs: 6, md: 10 }, position: 'relative', zIndex: 1, width: '100%' }}
     >
       <Typography

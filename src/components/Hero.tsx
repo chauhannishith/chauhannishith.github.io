@@ -2,6 +2,7 @@ import { Box, Button, Grid, Stack, Typography } from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import CodeIcon from '@mui/icons-material/Code'
 import MemoryIcon from '@mui/icons-material/Memory'
+import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 import { projects } from '../data/projects'
 import { ref } from '../theme/tokens'
@@ -14,6 +15,13 @@ const initials = site.name
   .toUpperCase()
 
 export const Hero = () => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setIsMounted(true), 30)
+    return () => window.clearTimeout(id)
+  }, [])
+
   return (
     <Box
       id="top"
@@ -67,7 +75,8 @@ export const Hero = () => {
       >
         <Grid container spacing={{ xs: 4, lg: 6 }} alignItems="center" sx={{ width: '100%' }}>
           <Grid item xs={12} lg={6} sx={{ order: { xs: 2, lg: 1 } }}>
-            <Box
+            <Box className={`hero-reveal${isMounted ? ' hero-reveal--in' : ''}`}>
+              <Box
               component="span"
               sx={{
                 display: 'inline-flex',
@@ -168,6 +177,7 @@ export const Hero = () => {
                 Contact me
               </Button>
             </Stack>
+            </Box>
           </Grid>
           <Grid
             item
@@ -175,7 +185,10 @@ export const Hero = () => {
             lg={6}
             sx={{ order: { xs: 1, lg: 2 }, display: 'flex', justifyContent: { xs: 'center', lg: 'flex-end' } }}
           >
-            <Box sx={{ position: 'relative', width: { xs: 220, sm: 280, md: 320 }, height: { xs: 220, sm: 280, md: 320 } }}>
+            <Box
+              className={`hero-avatar-reveal${isMounted ? ' hero-avatar-reveal--in' : ''}`}
+              sx={{ position: 'relative', width: { xs: 220, sm: 280, md: 320 }, height: { xs: 220, sm: 280, md: 320 } }}
+            >
               <Box
                 sx={{
                   position: 'absolute',
