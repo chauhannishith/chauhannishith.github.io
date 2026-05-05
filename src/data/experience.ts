@@ -26,7 +26,7 @@ export const experiences: ExperienceEntry[] = [
       'Accelerated MVP development by more than 50% using AI-assisted workflows (Cursor, Copilot, Gemini) while maintaining quality through automated testing.',
       'Led technical mentorship and code reviews for a team of 4 developers.',
     ],
-    skills: ['ReactJS', 'NextJS', 'TypeScript', 'NodeJS', 'TanStack Query', 'Redux-Saga', 'Redux-Thunk', 'Golang', 'ProtoBuf', 'PostgreSQL', 'Temporal', 'Playwright', 'AWS'],
+    skills: ['ReactJS', 'NextJS', 'TypeScript', 'TanStack Query', 'Redux-Saga', 'Redux-Thunk', 'Golang', 'ProtoBuf', 'PostgreSQL', 'DynamoDB', 'Temporal', 'Playwright', 'AWS', 'NodeJS', 'Python', 'Sentry', 'Mixpanel', 'DataDog', 'Docker', 'Github Actions'],
   },
   {
     id: 'numie',
@@ -50,6 +50,6 @@ export const experiences: ExperienceEntry[] = [
       'Developed and published npm package for modular third-party integration, managing full lifecycle from coding to deployment.',
       'Mentored and led 2 engineering interns, performing code reviews to validate design and implementation.',
     ],
-    skills: ['Javascript', 'ReactJS'],
+    skills: ['Javascript', 'ExpressJS', 'ReactJS', 'MongoDB', 'Netlify'],
   },
 ]
