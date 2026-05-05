@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useReducedMotionPreference } from './useReducedMotionPreference'
 
 type UseCountUpOptions = {
   isActive: boolean
@@ -6,16 +7,12 @@ type UseCountUpOptions = {
   delayMs?: number
 }
 
-const prefersReducedMotion = () => {
-  if (typeof window === 'undefined') return true
-  return window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
-}
-
 export const useCountUp = (target: number, { isActive, durationMs = 900, delayMs = 0 }: UseCountUpOptions) => {
   const safeTarget = Number.isFinite(target) ? target : 0
   const [value, setValue] = useState(0)
 
-  const reduced = useMemo(() => prefersReducedMotion(), [])
+  const { reduceMotion } = useReducedMotionPreference()
+  const reduced = useMemo(() => reduceMotion, [reduceMotion])
 
   useEffect(() => {
     if (!isActive) return

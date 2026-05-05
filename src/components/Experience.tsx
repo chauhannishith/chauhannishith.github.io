@@ -1,8 +1,11 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from '@mui/material'
+import { useState } from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, Box, FormControlLabel, Stack, Switch, Tooltip, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { experiences, type ExperienceEntry } from '../data/experience'
+import { ExperienceSkillsPhysics } from './ExperienceSkillsPhysics'
 import { PageSection } from './PageSection'
 import { styled } from '@mui/material/styles'
+import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
 
 const Company = styled('span')(({ theme }) => ({
   color: theme.palette.text.secondary,
@@ -20,24 +23,6 @@ const BulletList = styled('ul')({
   lineHeight: 1.6
 })
 
-const SkillList = styled('ul')({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '0.5rem',
-  listStyle: 'none',
-  padding: 0,
-  margin: 0
-})
-
-const SkillLi = styled('li')({
-  fontSize: '0.8rem',
-  padding: '0.25rem 0.5rem',
-  borderRadius: '0.5rem',
-  backgroundColor: 'rgba(99, 102, 241, 0.08)',
-  border: '1px solid rgba(99, 102, 241, 0.22)',
-  color: 'rgba(226, 232, 240, 0.9)'
-})
-
 export const Experience = () => {
   return (
     <PageSection id="experience" kicker="Career" title="Experience">
@@ -50,44 +35,68 @@ export const Experience = () => {
   )
 }
 
-const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: number }) => (
-  <Accordion
-    defaultExpanded={index === 0}
-    disableGutters
-    sx={{
-      mb: 1.5,
-      backgroundColor: 'rgba(255,255,255,0.02)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '12px !important',
-      overflow: 'hidden',
-      '&:before': { display: 'none' }
-    }}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon sx={{ color: 'text.secondary' }} />}
-      aria-controls={`panel-${entry.id}-content`}
-      id={`panel-${entry.id}-header`}
+const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: number }) => {
+  const [expanded, setExpanded] = useState(index === 0)
+  const { forcedReduced, systemPrefersReduced, toggleForced } = useReducedMotionPreference()
+
+  return (
+    <Accordion
+      expanded={expanded}
+      onChange={(_, next) => setExpanded(next)}
+      disableGutters
+      sx={{
+        mb: 1.5,
+        backgroundColor: 'rgba(255,255,255,0.02)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        borderRadius: '12px !important',
+        overflow: 'hidden',
+        '&:before': { display: 'none' },
+      }}
     >
-      <Typography sx={{ color: 'text.primary', fontWeight: 600 }}>
-        {entry.title} at <Company>{entry.company}</Company> — {entry.location}
-      </Typography>
-    </AccordionSummary>
-    <AccordionDetails sx={{ pt: 0, pb: 2 }}>
-      <Stack spacing={2}>
-        <Typography fontSize="0.9rem" fontWeight={500} sx={{ color: 'primary.main' }}>
-          {entry.period}
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon sx={{ color: 'text.secondary' }} />}
+        aria-controls={`panel-${entry.id}-content`}
+        id={`panel-${entry.id}-header`}
+      >
+        <Typography sx={{ color: 'text.primary', fontWeight: 600 }}>
+          {entry.title} at <Company>{entry.company}</Company> — {entry.location}
         </Typography>
-        <BulletList>
-          {entry.bullets.map((b, i) => (
-            <li key={`${entry.id}-b-${i}`}>{b}</li>
-          ))}
-        </BulletList>
-        <SkillList>
-          {entry.skills.map((skill) => (
-            <SkillLi key={`${entry.id}-s-${skill}`}>{skill}</SkillLi>
-          ))}
-        </SkillList>
-      </Stack>
-    </AccordionDetails>
-  </Accordion>
-)
+      </AccordionSummary>
+      <AccordionDetails sx={{ pt: 0, pb: 2 }}>
+        <Stack spacing={2}>
+          <Typography fontSize="0.9rem" fontWeight={500} sx={{ color: 'primary.main' }}>
+            {entry.period}
+          </Typography>
+          <BulletList>
+            {entry.bullets.map((b, i) => (
+              <li key={`${entry.id}-b-${i}`}>{b}</li>
+            ))}
+          </BulletList>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: -0.75 }}>
+            <Tooltip
+              title={
+                systemPrefersReduced
+                  ? 'Your OS prefers reduced motion. Toggle to further reduce motion in interactive sections'
+                  : 'Reduce motion in interactive and animated sections'
+              }
+              placement="top"
+              arrow
+            >
+              <FormControlLabel
+                label="Reduced motion"
+                control={<Switch size="small" checked={forcedReduced} onChange={toggleForced} />}
+                sx={{
+                  m: 0,
+                  '.MuiFormControlLabel-label': { fontSize: '0.85rem', color: 'text.secondary', userSelect: 'none' },
+                }}
+              />
+            </Tooltip>
+          </Box>
+          {expanded ? (
+            <ExperienceSkillsPhysics entryId={entry.id} skills={entry.skills} />
+          ) : null}
+        </Stack>
+      </AccordionDetails>
+    </Accordion>
+  )
+}

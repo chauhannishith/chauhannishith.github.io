@@ -207,3 +207,26 @@
   }
 
 }
+
+html[data-reduce-motion='true'] {
+  scroll-behavior: auto;
+}
+
+html[data-reduce-motion='true'] .portfolio-fade {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html[data-reduce-motion='true'] .hero-reveal,
+html[data-reduce-motion='true'] .hero-avatar-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html[data-reduce-motion='true'] .ref-hero-glow__a,
+html[data-reduce-motion='true'] .ref-hero-glow__b,
+html[data-reduce-motion='true'] .ref-hero-glow__c {
+  animation: none;
+}
