@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import Matter from 'matter-js'
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
@@ -305,13 +306,14 @@ function initPhysics(
 
 export function ExperienceSkillsPhysics({ entryId, skills }: { entryId: string; skills: string[] }) {
   const { reduceMotion } = useReducedMotionPreference()
+  const isDesktop = useMediaQuery('(pointer: fine) and (hover: hover)')
   const rootRef = useRef<HTMLDivElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
   const [arena, setArena] = useState<{ width: number; height: number } | null>(null)
 
   useEffect(() => {
-    if (reduceMotion) return
+    if (reduceMotion || !isDesktop) return
 
     const root = rootRef.current
     if (!root) return
@@ -333,10 +335,10 @@ export function ExperienceSkillsPhysics({ entryId, skills }: { entryId: string; 
     const ro = new ResizeObserver(() => measure())
     ro.observe(root)
     return () => ro.disconnect()
-  }, [reduceMotion, skills])
+  }, [isDesktop, reduceMotion, skills])
 
   useEffect(() => {
-    if (reduceMotion || !arena) return
+    if (reduceMotion || !isDesktop || !arena) return
 
     const root = rootRef.current
     const layer = layerRef.current
@@ -344,11 +346,11 @@ export function ExperienceSkillsPhysics({ entryId, skills }: { entryId: string; 
 
     const teardown = initPhysics(root, layer, skills, arena.width, arena.height)
     return () => teardown()
-  }, [arena, entryId, reduceMotion, skills])
+  }, [arena, entryId, isDesktop, reduceMotion, skills])
 
   const fallbackH = fallbackPlayHeight(skills.length)
 
-  if (reduceMotion) {
+  if (reduceMotion || !isDesktop) {
     return <StaticExperienceSkills entryId={entryId} skills={skills} />
   }
 

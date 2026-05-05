@@ -5,6 +5,7 @@ import { experiences, type ExperienceEntry } from '../data/experience'
 import { ExperienceSkillsPhysics } from './ExperienceSkillsPhysics'
 import { PageSection } from './PageSection'
 import { styled } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
 
 const Company = styled('span')(({ theme }) => ({
@@ -38,6 +39,7 @@ export const Experience = () => {
 const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: number }) => {
   const [expanded, setExpanded] = useState(index === 0)
   const { forcedReduced, systemPrefersReduced, toggleForced } = useReducedMotionPreference()
+  const isDesktop = useMediaQuery('(pointer: fine) and (hover: hover)')
 
   return (
     <Accordion
@@ -72,26 +74,28 @@ const ExperienceAccordion = ({ entry, index }: { entry: ExperienceEntry; index: 
               <li key={`${entry.id}-b-${i}`}>{b}</li>
             ))}
           </BulletList>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: -0.75 }}>
-            <Tooltip
-              title={
-                systemPrefersReduced
-                  ? 'Your OS prefers reduced motion. Toggle to further reduce motion in interactive sections'
-                  : 'Reduce motion in interactive and animated sections'
-              }
-              placement="top"
-              arrow
-            >
-              <FormControlLabel
-                label="Reduced motion"
-                control={<Switch size="small" checked={forcedReduced} onChange={toggleForced} />}
-                sx={{
-                  m: 0,
-                  '.MuiFormControlLabel-label': { fontSize: '0.85rem', color: 'text.secondary', userSelect: 'none' },
-                }}
-              />
-            </Tooltip>
-          </Box>
+          {isDesktop ? (
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: -0.75 }}>
+              <Tooltip
+                title={
+                  systemPrefersReduced
+                    ? 'Your OS prefers reduced motion. Toggle to further reduce motion in interactive sections'
+                    : 'Reduce motion in interactive and animated sections'
+                }
+                placement="top"
+                arrow
+              >
+                <FormControlLabel
+                  label="Reduced motion"
+                  control={<Switch size="small" checked={forcedReduced} onChange={toggleForced} />}
+                  sx={{
+                    m: 0,
+                    '.MuiFormControlLabel-label': { fontSize: '0.85rem', color: 'text.secondary', userSelect: 'none' },
+                  }}
+                />
+              </Tooltip>
+            </Box>
+          ) : null}
           {expanded ? (
             <ExperienceSkillsPhysics entryId={entry.id} skills={entry.skills} />
           ) : null}
