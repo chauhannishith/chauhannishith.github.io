@@ -47,7 +47,7 @@ export const experiences: ExperienceEntry[] = [
     location: 'Kiev, Ukraine (Remote)',
     period: 'March 2018 - July 2018',
     bullets: [
-      'Engineered a modular NPM library for third-party integrations, effectively isolating core data-retrieval mechanics from database dependencies into a reusable utility package.',
+      'Engineered and published an NPM package encapsulating ingredient databases, nutritional calculations, and food classification logic (vegan, vegetarian, etc.) into a reusable third-party integration utility.',
       'Mentored 2 engineering interns through architectural design sessions and rigorous code reviews.',
     ],
     skills: ['Javascript', 'ExpressJS', 'ReactJS', 'MongoDB', 'Netlify'],
