@@ -1,47 +1,52 @@
-import { Typography, Grid } from '@mui/material'
-import { Section } from './Section'
+import { Link, Stack, Typography } from '@mui/material'
 import { Email, GitHub, LinkedIn } from '@mui/icons-material'
 import { socialLinks } from '../data/socials'
+import { PageSection } from './PageSection'
 
 const iconById = {
   email: Email,
   github: GitHub,
-  linkedin: LinkedIn,
-}
+  linkedin: LinkedIn
+} as const
 
 export const Connect = () => {
   return (
-    <Section id="connect">
-      <Grid container item xs>
-        <Grid container item xs flexDirection={'column'}>
-          <Grid container item md={6} flexDirection={'column'} gap={'1rem'}>
-            <Typography variant='h2' fontWeight={600} color='text.secondary' className='fade-list-item' style={{ animationDelay: '50ms' }}>
-              Let's Connect
-            </Typography>
-            <Typography variant='body1' fontSize={'1.125rem'} color='text.secondary' className='fade-list-item' style={{ animationDelay: '130ms' }}>
-              If you want to know more about me or my work, or if you would just like to say hello, send me a message. I'd love to hear from you.
-            </Typography>
-            <Grid container item xs flexDirection={'row'} className='fade-list-item' style={{ animationDelay: '210ms' }}>
-              {socialLinks.map((social) => {
-                const Icon = iconById[social.id]
-                return (
-                  <Grid item marginRight={'1rem'} className='interactive-icon' key={social.id}>
-                    <a
-                      href={social.href}
-                      target={social.id === 'email' ? undefined : '_blank'}
-                      rel={social.id === 'email' ? undefined : 'noreferrer'}
-                      aria-label={social.label}
-                      title={social.label}
-                    >
-                      <Icon color={'primary'}/>
-                    </a>
-                  </Grid>
-                )
-              })}
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Section>
+    <PageSection id="connect" kicker="Contact" title="Let’s connect">
+      <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, maxWidth: 560, mb: 2 }}>
+        If you want to know more about me or my work, or you would just like to say hello, reach out. I will get back
+        to you.
+      </Typography>
+      <Stack direction="row" gap={2} flexWrap="wrap">
+        {socialLinks.map((social) => {
+          const Icon = iconById[social.id]
+          return (
+            <Link
+              key={social.id}
+              href={social.href}
+              target={social.id === 'email' ? undefined : '_blank'}
+              rel={social.id === 'email' ? undefined : 'noreferrer'}
+              aria-label={social.label}
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1,
+                p: 1.5,
+                borderRadius: 2,
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                color: 'text.primary',
+                textDecoration: 'none',
+                '&:hover': {
+                  backgroundColor: 'rgba(99, 102, 241, 0.08)',
+                  borderColor: 'primary.main',
+                }
+              }}
+            >
+              <Icon sx={{ color: 'primary.main' }} />
+              <span>{social.label}</span>
+            </Link>
+          )
+        })}
+      </Stack>
+    </PageSection>
   )
 }

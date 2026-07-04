@@ -1,23 +1,24 @@
-import { Container, ThemeProvider } from '@mui/material'
+import { Container, CssBaseline, ThemeProvider } from '@mui/material'
 import React from 'react'
-import {  BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
-import { MainPage } from '../containers/Main'
-import {Profile} from '../containers/Profile'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { Profile } from '../containers/Profile'
 import { customTheme } from '../utils'
 
 const CenterLayout = () => {
-  const theme = customTheme
   return (
     <ThemeProvider theme={customTheme}>
-      <Container maxWidth={false} 
-        style={{
+      <CssBaseline enableColorScheme />
+      <Container
+        maxWidth={false}
+        disableGutters
+        sx={{
           position: 'relative',
-          backgroundColor: theme.palette.background.default,
-          color: 'black',
+          backgroundColor: 'background.default',
+          color: 'text.primary',
           minHeight: '100vh',
-          padding: '0',
-        }}>
-        <React.Suspense fallback={<></>}>
+        }}
+      >
+        <React.Suspense fallback={null}>
           <Outlet />
         </React.Suspense>
       </Container>
@@ -29,8 +30,7 @@ export const RoutesContainer = () => {
   const routes = () => {
     return (
       <Route element={<CenterLayout />}>
-        <Route path={'/profile'} element={<Profile />} />
-        <Route path={'/temp'} element={<MainPage />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Profile />} />
       </Route>
     )

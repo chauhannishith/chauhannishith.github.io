@@ -18,3 +18,27 @@ Object.defineProperty(window, 'IntersectionObserver', {
   configurable: true,
   value: IntersectionObserverMock,
 })
+
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  configurable: true,
+  value: (query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  }),
+})
+
+if (!globalThis.fetch) {
+  // Minimal fetch stub for tests that mount GitHubActivity
+  // @ts-expect-error - test-only stub
+  globalThis.fetch = async () => ({
+    ok: true,
+    json: async () => ({ contributions: [] }),
+  })
+}

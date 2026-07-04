@@ -11,12 +11,10 @@ const iconById = {
 export const SocialRail = () => {
   return (
     <Box
-      className='social-rail'
+      className="social-rail"
       sx={{
-        display: {
-          xs: 'none',
-          md: 'flex',
-        },
+        display: { xs: 'none', md: 'flex' },
+        color: 'text.secondary',
       }}
     >
       {socialLinks.map((social) => {
@@ -29,13 +27,14 @@ export const SocialRail = () => {
             title={social.label}
             target={social.id === 'email' ? undefined : '_blank'}
             rel={social.id === 'email' ? undefined : 'noreferrer'}
-            className='interactive-icon social-rail-link'
+            className="interactive-icon social-rail-link"
+            sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}
           >
-            <Icon fontSize='small' />
+            <Icon fontSize="small" />
           </Link>
         )
       })}
-      <div className='social-rail-line' />
+      <div className="social-rail-line" />
     </Box>
   )
 }
