@@ -28,9 +28,9 @@ export const site = {
   heroAvatarUrl: null as string | null,
 
   projectsKicker: 'Latest projects',
-  projectsTitle: 'A selection of software work I am proud to ship',
+  projectsTitle: 'Products and sites I have shipped',
   projectsLead:
-    'Replace placeholder cards in src/data/projects.ts with your real work, years, and links when ready.',
+    'Live work spanning SaaS tooling and client-facing web products — from monitoring dashboards to agency sites that convert visitors into leads.',
 
   /** Short “about” for the dedicated section (expand when ready) */
   aboutParagraph:
@@ -38,7 +38,7 @@ export const site = {
 
   /** Stats — use real numbers or leave placeholders */
   stats: [
-    // { id: 'projects', label: 'Projects', value: 'TBD', hint: 'Set a count or remove this cell' },
+    { id: 'projects', label: 'Projects', value: '2' },
     { id: 'certs', label: 'Certificates', value: '1', hint: 'Add certifications section later' },
     { id: 'years', label: 'Years experience', value: '—', hint: 'Auto-calculated from experience history' },
   ] as SiteStat[],

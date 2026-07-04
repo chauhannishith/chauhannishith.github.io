@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { site } from '../data/site'
 
 const links = [
+  { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },

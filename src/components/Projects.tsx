@@ -92,17 +92,17 @@ export const Projects = () => {
       </Stack>
       <Grid container spacing={2}>
         {projects.map((p) => (
-          <Grid item xs={12} md={6} lg={4} key={p.id}>
+          <Grid item xs={12} md={6} key={p.id}>
             <Card
               elevation={0}
               sx={{
                 height: '100%',
-                minHeight: 320,
                 borderRadius: 3,
                 border: '1px solid rgba(255,255,255,0.08)',
                 backgroundColor: ref.cardBg,
                 display: 'flex',
                 flexDirection: 'column',
+                overflow: 'hidden',
                 transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
                 '&:hover': {
                   borderColor: 'rgba(99, 102, 241, 0.35)',
@@ -110,6 +110,22 @@ export const Projects = () => {
                 },
               }}
             >
+              {p.image && (
+                <Box
+                  component="img"
+                  src={p.image}
+                  alt={`${p.title} preview`}
+                  loading="lazy"
+                  sx={{
+                    width: '100%',
+                    aspectRatio: '16 / 10',
+                    objectFit: 'cover',
+                    objectPosition: 'top',
+                    display: 'block',
+                    borderBottom: '1px solid rgba(255,255,255,0.06)',
+                  }}
+                />
+              )}
               <CardContent sx={{ p: 2.5, display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={1} sx={{ mb: 1.5 }}>
                   <Box>

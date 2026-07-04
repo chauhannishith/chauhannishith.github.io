@@ -5,35 +5,32 @@ export type Project = {
   description: string
   tags: string[]
   href?: string
+  image?: string
   /** 'live' = real project; 'placeholder' = to be replaced */
   kind: 'live' | 'placeholder'
 }
 
-/** Replace or extend with your real work; placeholders keep the layout filled */
-export const projects: Project[] = []
-// const placeholderProjects: Project[] = [
-//   {
-//     id: 'p-portfolio',
-//     title: 'This portfolio (placeholder entry)',
-//     year: '2025',
-//     description: 'Describe a flagship project: problem, your role, stack, and outcome. Link to the repo or demo when ready.',
-//     tags: ['React', 'TypeScript', 'MUI', 'Vite'],
-//     kind: 'placeholder',
-//   },
-//   {
-//     id: 'p-saas',
-//     title: 'Product / app — TBD',
-//     year: 'TBD',
-//     description: 'Add a second featured project: name, 1–2 lines, and tech tags. Use href for live URL or GitHub.',
-//     tags: ['Stack', 'Goes', 'Here'],
-//     kind: 'placeholder',
-//   },
-//   {
-//     id: 'p-api',
-//     title: 'Service or API work — TBD',
-//     year: 'TBD',
-//     description: 'Optional third card for another highlight (open source, tool, or client work).',
-//     tags: ['Node', 'PostgreSQL', 'AWS'],
-//     kind: 'placeholder',
-//   },
-// ]
+export const projects: Project[] = [
+  {
+    id: 'affiliate-checkers',
+    title: 'Affiliate Checkers',
+    year: '2026',
+    description:
+      'SaaS that monitors link-in-bio and affiliate URLs around the clock. Detects broken links, server errors, and out-of-stock pages, then alerts creators on Telegram so they can fix issues before losing revenue.',
+    tags: ['SaaS', 'Link monitoring', 'Telegram alerts', 'Next.js'],
+    href: 'https://affiliatecheckers.com',
+    image: '/projects/affiliatecheckers.jpg',
+    kind: 'live',
+  },
+  {
+    id: 'get-us-live',
+    title: 'Get Us Live',
+    year: '2025',
+    description:
+      'Agency site for contract programming, custom web development, SEO, and vibecode audits. Showcases shipped products, service offerings, and lead capture for businesses bringing their work online.',
+    tags: ['Web development', 'SEO', 'Contract programming', 'Next.js'],
+    href: 'https://getuslive.com',
+    image: '/projects/getuslive.jpg',
+    kind: 'live',
+  },
+]
